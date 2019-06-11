@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import BlogExcerpt from '../BlogExcerpt';
 import blogPostData from "../../data/blog-posts.js";
-import './styles.css';
 
 class BlogExcerpts extends Component {
   fullData = blogPostData;
