@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import BlogExcerpt from '../BlogExcerpt';
-import blogPostData from "../../data/blog-posts.js";
 
 class BlogExcerpts extends Component {
-  fullData = blogPostData;
+  json = require('../../data/blog-posts.json');
   state = {
     data: [],
   }
 
   componentDidMount() {
     this.setState({ 
-      data: this.fullData.slice()
+      data: this.json.slice()
      })
   }
 

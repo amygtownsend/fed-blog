@@ -1,4 +1,4 @@
-const blogPostData = [
+[
   {
     "_id": "5cfe696b1d9ae0e5d923c5f3",
     "index": 0,
@@ -269,6 +269,4 @@ const blogPostData = [
     "body": "Nulla in dolor consectetur officia excepteur non velit est mollit officia laboris qui adipisicing. Officia minim et ea aliqua sunt minim sint deserunt voluptate officia ex. Cupidatat laborum enim velit id adipisicing.\r\nIrure culpa sint anim consectetur sit. Aute qui pariatur id tempor enim. Enim commodo labore reprehenderit sunt non esse nulla velit esse nulla dolore Lorem nulla. Ea culpa sit aute dolore non mollit et esse et pariatur consequat dolore. Veniam qui mollit esse veniam amet incididunt incididunt eiusmod. Commodo nulla id aliqua consectetur ipsum officia sint laborum do.\r\n",
     "date": "2014-12-24"
   }
-];
-
-export default blogPostData;
+]
