@@ -1,6 +1,6 @@
 import React from 'react';
 
-function BlogExcerpt({ picture, author, title, body, date }) {
+const BlogExcerpt = ({ picture, author, title, body, date }) => {
   return (
     <div>
       <img src={picture} alt=""/>

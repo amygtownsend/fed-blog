@@ -1,31 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import json from '../../data/blog-posts.json';
 import BlogExcerpt from '../BlogExcerpt';
 
-class BlogExcerpts extends Component {
-  json = require('../../data/blog-posts.json');
-  state = {
-    data: [],
-  }
+const BlogExcerpts = () => {
+  const [data, setData] = useState([]);
 
-  componentDidMount() {
-    this.setState({ 
-      data: this.json.slice()
-     })
-  }
+  useEffect(() => {
+    setData(json.slice());
+  }, [])
 
-  renderExcerpt = ({ index, picture, author, title, body, date }) => {
+  const renderExcerpt = ({ index, picture, author, title, body, date }) => {
     return (
       <BlogExcerpt key={index} picture={picture} author={author} title={title} body={body} date={date}/>
     )
   }
 
-  render() {
-    return (
-      <div>
-        {this.state.data.map(this.renderExcerpt)}
-      </div>
-    )
-  }
+  return (
+    <div>
+      {data.map(renderExcerpt)}
+    </div>
+  )
 }
 
 export default BlogExcerpts;
