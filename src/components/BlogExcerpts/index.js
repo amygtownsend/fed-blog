@@ -7,19 +7,22 @@ const BlogExcerpts = () => {
 
   useEffect(() => {
     setData(json.slice());
-  }, [])
+  }, []);
 
   const renderExcerpt = ({ index, picture, author, title, body, date }) => {
     return (
-      <BlogExcerpt key={index} picture={picture} author={author} title={title} body={body} date={date}/>
-    )
-  }
+      <BlogExcerpt
+        key={index}
+        picture={picture}
+        author={author}
+        title={title}
+        body={body}
+        date={date}
+      />
+    );
+  };
 
-  return (
-    <div>
-      {data.map(renderExcerpt)}
-    </div>
-  )
-}
+  return <div>{data.map(renderExcerpt)}</div>;
+};
 
 export default BlogExcerpts;
