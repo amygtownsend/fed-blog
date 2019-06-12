@@ -20,15 +20,15 @@ This is a React app that relies on [Create React App](https://github.com/faceboo
 
 2. **Install/Define Node Version**
 
-Install Node 10.16.0, for example using [asdf](https://github.com/asdf-vm/asdf) or [nvm](https://github.com/creationix/nvm). An example using asdf is shown below.
+Install Node 10.16.0 using [asdf](https://github.com/asdf-vm/asdf).
 
 ```bash
 # install Node 10.16.0
 # this may take a while so go get a snack
-asdf install node 10.16.0
+asdf install nodejs 10.16.0
 
 # when the install is complete, set the local Node version
-asdf local node 10.16.0
+asdf local nodejs 10.16.0
 ```
 
 3. **Install Create React App dependencies**
