@@ -40,6 +40,13 @@
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "postcss-easy-import": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
+    "prettier": "^1.18.2",
     "tailwindcss": "^1.0.3"
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true
   }
 }

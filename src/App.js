@@ -1,6 +1,5 @@
 import React from 'react';
 import BlogExcerpts from './components/BlogExcerpts';
-import './App.css';
 
 function App() {
   return (
