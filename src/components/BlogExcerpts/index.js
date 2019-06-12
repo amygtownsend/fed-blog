@@ -6,7 +6,7 @@ const BlogExcerpts = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setData(json.slice());
+    setData(json);
   }, []);
 
   const renderExcerpt = ({ index, picture, author, title, body, date }) => {
