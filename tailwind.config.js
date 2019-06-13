@@ -1,3 +1,7 @@
+let rem = px => {
+  return px / 16 + 'rem'
+}
+
 module.exports = {
   prefix: '',
   important: false,
@@ -34,16 +38,16 @@ module.exports = {
     },
     spacing: {
       '0': '0',
-      '4': '0.25rem',
-      '8': '0.5rem',
-      '12': '0.75rem',
-      '14': '0.875rem',
-      '16': '1rem',
-      '22': '1.375rem',
-      '30': '1.875rem',
-      '184': '11.5rem',
-      '224': '14rem',
-      '244': '15.25rem'
+      '4': rem(4),
+      '8': rem(8),
+      '12': rem(12),
+      '14': rem(14),
+      '16': rem(16),
+      '22': rem(22),
+      '30': rem(30),
+      '184': rem(184),
+      '224': rem(224),
+      '244': rem(244)
     },
     backgroundColor: theme => theme('colors'),
     backgroundPosition: {
@@ -68,8 +72,8 @@ module.exports = {
     }),
     borderRadius: {
       none: '0',
-      default: '0.25rem',
-      '8': '0.5rem',
+      default: rem(4),
+      '8': rem(8),
       full: '9999px'
     },
     borderWidth: {
@@ -144,19 +148,19 @@ module.exports = {
       ]
     },
     fontSize: {
-      '14': '0.875rem',
-      '15': '0.9375rem',
-      '16': '1rem',
-      '18': '1.125rem',
-      '22': '1.375rem',
-      '24': '1.5rem',
-      '36': '2.25rem',
-      '40': '2.5rem',
-      '48': '3rem',
-      '50': '3.125rem',
-      '64': '4rem',
-      '80': '5rem',
-      '100': '6.25rem'
+      '14': rem(14),
+      '15': rem(15),
+      '16': rem(16),
+      '18': rem(18),
+      '22': rem(22),
+      '24': rem(24),
+      '36': rem(36),
+      '40': rem(40),
+      '48': rem(48),
+      '50': rem(50),
+      '64': rem(64),
+      '80': rem(80),
+      '100': rem(100)
     },
     fontWeight: {
       extralight: '100',
@@ -209,8 +213,8 @@ module.exports = {
       screen: '100vh'
     },
     maxWidth: {
-      '950': '59.375rem',
-      '994': '62.125rem',
+      '950': rem(950),
+      '994': rem(994),
       full: '100%'
     },
     minHeight: {
