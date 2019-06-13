@@ -1,6 +1,4 @@
-let rem = px => {
-  return px / 16 + 'rem'
-}
+const rem = px => px / 16 + 'rem'
 
 module.exports = {
   prefix: '',
@@ -87,7 +85,6 @@ module.exports = {
       default: '0 2px 2px 0 rgba(0, 0, 0, 0.2)',
       none: 'none'
     },
-    container: {},
     cursor: {
       auto: 'auto',
       default: 'default',
@@ -329,6 +326,7 @@ module.exports = {
     backgroundAttachment: false,
     backgroundRepeat: false,
     borderCollapse: false,
+    container: false,
     fill: false,
     fontSmoothing: false,
     order: false,
