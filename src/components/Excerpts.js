@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from '@reach/router'
 import json from '../data/blog-posts.json'
+import logoColor from './img/logos/logo-color.png'
+import arrowLeft from './img/icons/arrow-lf.png'
+import arrowRight from './img/icons/arrow-rt.png'
 const classNames = require('classnames')
 
 const Excerpts = () => {
@@ -73,7 +76,28 @@ const Excerpts = () => {
     )
   }
 
-  return <div className="flex-col">{data.map(renderExcerpt)}</div>
+  return (
+    <div>
+      <img
+        src={logoColor}
+        alt="Aspiring Writers Alley logo"
+        className="m-auto block mb-30"
+      />
+      <hr className="border-gray-100 border m-0 mx-30" />
+      <div className="flex-col">{data.map(renderExcerpt)}</div>
+      <hr className="border-gray-100 border m-0 mx-30" />
+      <div className="flex justify-between m-30">
+        <div className="flex items-center">
+          <img src={arrowLeft} alt="previous blog posts" className="mr-8" />
+          <button className="btn">Prev</button>
+        </div>
+        <div className="flex items-center">
+          <button className="btn">Next</button>
+          <img src={arrowRight} alt="next blog posts" className="ml-8" />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Excerpts

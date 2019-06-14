@@ -4,7 +4,7 @@ import Excerpts from './components/Excerpts'
 import FullPost from './components/FullPost'
 
 const App = () => (
-  <div className="max-w-950 m-auto">
+  <div className="max-w-950 m-auto my-24">
     <Router>
       <Excerpts path="/" />
       <FullPost path=":key" />
