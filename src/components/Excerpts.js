@@ -61,11 +61,11 @@ const Excerpts = () => {
           <div className="ml-30">
             <h2 className={titleClasses}>{title}</h2>
             <div className="flex text-18 my-8">
-              <span className="font-semibold">{author}</span>
+              <span className="font-medium">{author}</span>
               <span className="px-8 text-gray-100 group-hover:text-white">
                 |
               </span>
-              <time dateTime={date} className="font-semibold">
+              <time dateTime={date} className="font-medium">
                 {months[d.getMonth()]} {d.getDay()}, {d.getFullYear()}
               </time>
             </div>
