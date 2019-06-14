@@ -23,8 +23,8 @@ const Home = () => {
     return (
       <Link to={key}>
         <article className="group flex items-start p-30 my-30 hover:bg-green-200 hover:text-white rounded-8">
-          <img className="flex-shrink-0" src={picture} alt="" />
-          <div className="mx-30">
+          <img src={picture} alt="" />
+          <div className="ml-30">
             <h2 className="text-green-200 group-hover:text-white text-36 leading-tight capitalize">
               {title}
             </h2>
