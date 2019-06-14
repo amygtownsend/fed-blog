@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from '@reach/router'
 import json from '../data/blog-posts.json'
-import logoColor from './img/logos/logo-color.png'
-import arrowLeft from './img/icons/arrow-lf.png'
-import arrowRight from './img/icons/arrow-rt.png'
+import logoColor from '../img/logos/logo-color.png'
+import arrowLeft from '../img/icons/arrow-lf.png'
+import arrowRight from '../img/icons/arrow-rt.png'
 const classNames = require('classnames')
 
 const Excerpts = () => {
