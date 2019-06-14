@@ -1,3 +1,5 @@
+// @TODO write a plugin that watches template files for changes and updates css, then add purgecss back
+
 // const purgecss = require('@fullhuman/postcss-purgecss')({
 //   content: ['./src/**/*.js'],
 //   css: ['./src/css/tailwind.css'],
