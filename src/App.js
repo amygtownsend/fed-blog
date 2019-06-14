@@ -55,7 +55,7 @@ const Home = () => {
     )
 
     return (
-      <Link to={key}>
+      <Link key={key} to={key}>
         <article className={cardClasses}>
           <img src={picture} alt="" />
           <div className="ml-30">
