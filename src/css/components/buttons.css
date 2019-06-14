@@ -1,0 +1,4 @@
+.btn {
+  @apply text-white;
+  @apply bg-blue-200;
+}

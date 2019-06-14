@@ -4,6 +4,19 @@
 //   // Include any special characters you're using in this regular expression
 //   defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
 // });
+
+const postcssPresetEnv = require('postcss-preset-env')
+
 module.exports = {
-  plugins: [require('tailwindcss'), require('autoprefixer')]
+  plugins: [
+    require('postcss-easy-import'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+    postcssPresetEnv({
+      festures: {
+        'custom-media-queries': true,
+        'nesting-rules': true
+      }
+    })
+  ]
 }

@@ -42,8 +42,11 @@ module.exports = {
       '14': rem(14),
       '16': rem(16),
       '22': rem(22),
+      '24': rem(24),
       '30': rem(30),
+      '60': rem(60),
       '184': rem(184),
+      '200': rem(184),
       '224': rem(224),
       '244': rem(244)
     },
@@ -190,7 +193,7 @@ module.exports = {
     },
     lineHeight: {
       none: '1',
-      tight: '1.25',
+      tight: '1.22',
       normal: '1.5',
       relaxed: '1.625',
       loose: '2'
@@ -272,7 +275,7 @@ module.exports = {
     alignContent: [],
     alignItems: [],
     alignSelf: [],
-    backgroundColor: ['responsive', 'hover', 'focus'],
+    backgroundColor: ['responsive', 'hover', 'group-hover', 'focus'],
     backgroundPosition: [],
     backgroundSize: [],
     borderColor: ['responsive', 'hover', 'focus'],
@@ -312,7 +315,7 @@ module.exports = {
     pointerEvents: ['responsive'],
     position: ['responsive'],
     textAlign: ['responsive'],
-    textColor: ['responsive', 'hover', 'focus'],
+    textColor: ['responsive', 'hover', 'group-hover', 'focus'],
     textDecoration: ['responsive', 'hover', 'focus'],
     textTransform: [],
     verticalAlign: ['responsive'],
