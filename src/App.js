@@ -1,15 +1,18 @@
 import React from 'react'
 import { Router } from '@reach/router'
-import Excerpts from './components/Excerpts'
+import Home from './components/Home'
 import FullPost from './components/FullPost'
+import json from './data/blog-posts.json'
+
+const DataContext = React.createContext(json)
 
 const App = () => (
   <div className="max-w-950 m-auto my-24">
     <Router>
-      <Excerpts path="/" />
-      <FullPost path=":key" />
+      <Home path="/" />
+      <FullPost path="/blog/:postId" />
     </Router>
   </div>
 )
 
-export default App
+export { App, DataContext }
