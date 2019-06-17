@@ -37,7 +37,9 @@ module.exports = {
     spacing: {
       '0': '0',
       '4': rem(4),
+      '6': rem(6),
       '8': rem(8),
+      '10': rem(10),
       '12': rem(12),
       '14': rem(14),
       '16': rem(16),
@@ -60,6 +62,7 @@ module.exports = {
       right: 'right',
       'right-bottom': 'right bottom',
       'right-top': 'right top',
+      'right-8': 'right .5rem top 50%',
       top: 'top'
     },
     backgroundSize: {
@@ -258,6 +261,7 @@ module.exports = {
       '1/4': '25%',
       '2/4': '50%',
       '3/4': '75%',
+      '200': rem(200),
       full: '100%',
       screen: '100vw'
     }),
@@ -275,8 +279,10 @@ module.exports = {
     alignContent: [],
     alignItems: [],
     alignSelf: [],
+    appearance: [],
     backgroundColor: ['responsive', 'hover', 'group-hover', 'focus'],
     backgroundPosition: [],
+    backgroundRepeat: [],
     backgroundSize: [],
     borderColor: ['responsive', 'hover', 'focus'],
     borderRadius: [],
@@ -325,9 +331,7 @@ module.exports = {
     zIndex: ['responsive']
   },
   corePlugins: {
-    appearance: false,
     backgroundAttachment: false,
-    backgroundRepeat: false,
     borderCollapse: false,
     container: false,
     fill: false,
