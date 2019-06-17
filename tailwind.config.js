@@ -280,7 +280,7 @@ module.exports = {
     alignItems: [],
     alignSelf: [],
     appearance: [],
-    backgroundColor: ['responsive', 'hover', 'group-hover', 'focus'],
+    backgroundColor: ['responsive', 'hover', 'focus'],
     backgroundPosition: [],
     backgroundRepeat: [],
     backgroundSize: [],
@@ -321,7 +321,7 @@ module.exports = {
     pointerEvents: ['responsive'],
     position: ['responsive'],
     textAlign: ['responsive'],
-    textColor: ['responsive', 'hover', 'group-hover', 'focus'],
+    textColor: ['responsive', 'hover', 'group-hover', 'focus', 'group-focus'],
     textDecoration: ['responsive', 'hover', 'focus'],
     textTransform: [],
     verticalAlign: ['responsive'],
@@ -344,5 +344,13 @@ module.exports = {
     tableLayout: false,
     whitespace: false
   },
-  plugins: []
+  plugins: [
+    function({ addVariant, e }) {
+      addVariant('group-focus', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.group:focus .${e(`group-focus${separator}${className}`)}`
+        })
+      })
+    }
+  ]
 }

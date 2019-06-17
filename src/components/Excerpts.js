@@ -34,15 +34,17 @@ const Excerpts = ({ data }) => {
     const year = d.getFullYear()
 
     const cardClasses = classNames(
-      'group flex items-start p-30 my-30 hover:text-white rounded-8',
+      'group flex items-start p-30 my-30 hover:text-white focus:text-white rounded-8',
       {
         'hover:bg-green-200': index % 2 === 0,
-        'hover:bg-blue-200': index % 2 !== 0
+        'focus:bg-green-200': index % 2 === 0,
+        'hover:bg-blue-200': index % 2 !== 0,
+        'focus:bg-blue-200': index % 2 !== 0
       }
     )
 
     const titleClasses = classNames(
-      'group-hover:text-white text-36 leading-tight capitalize',
+      'group-hover:text-white group-focus:text-white text-36 leading-tight capitalize',
       {
         'text-green-200': index % 2 === 0,
         'text-blue-200': index % 2 !== 0
@@ -63,14 +65,16 @@ const Excerpts = ({ data }) => {
             <h2 className={titleClasses}>{title}</h2>
             <div className="flex text-18 my-8">
               <span className="font-medium">{author}</span>
-              <span className="px-8 text-gray-100 group-hover:text-white">
+              <span className="px-8 text-gray-100 group-hover:text-white group-focus:text-white">
                 |
               </span>
               <time dateTime={date} className="font-medium">
                 {month} {day}, {year}
               </time>
             </div>
-            <p className="leading-relaxed group-hover:text-white">{snippet}</p>
+            <p className="leading-relaxed group-hover:text-white group-focus:text-white">
+              {snippet}
+            </p>
           </div>
         </article>
       </Link>
