@@ -581,8 +581,8 @@ video {
 }
 
 p {
+  @apply font-light;
   @apply font-serif;
-  @apply text-gray-200;
 }
 
 /*# sourceMappingURL=base.css.map */

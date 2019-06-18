@@ -1,11 +1,12 @@
 import React from 'react'
-import { DataContext } from '../App'
 import Excerpts from '../components/Excerpts'
 
-const PostList = () => (
-  <DataContext.Consumer>
-    {value => <Excerpts data={value} />}
-  </DataContext.Consumer>
+const PostList = ({ data }) => (
+  <div className="flex-col">
+    {data.map(({ fields }, i) => (
+      <Excerpts key={i} index={i} limit={53} {...fields} />
+    ))}
+  </div>
 )
 
 export default PostList
