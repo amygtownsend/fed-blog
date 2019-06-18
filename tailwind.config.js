@@ -62,7 +62,7 @@ module.exports = {
       right: 'right',
       'right-bottom': 'right bottom',
       'right-top': 'right top',
-      'right-8': 'right .5rem top 50%',
+      'right-8': `right ${rem(8)} top 50%`,
       top: 'top'
     },
     backgroundSize: {

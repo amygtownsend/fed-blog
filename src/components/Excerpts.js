@@ -36,10 +36,8 @@ const Excerpts = ({ data }) => {
     const cardClasses = classNames(
       'group flex items-start p-30 my-30 hover:text-white focus:text-white rounded-8',
       {
-        'hover:bg-green-200': index % 2 === 0,
-        'focus:bg-green-200': index % 2 === 0,
-        'hover:bg-blue-200': index % 2 !== 0,
-        'focus:bg-blue-200': index % 2 !== 0
+        'hover:bg-green-200 focus:bg-green-200': index % 2 === 0,
+        'hover:bg-blue-200 focus:bg-blue-200': index % 2 !== 0
       }
     )
 
