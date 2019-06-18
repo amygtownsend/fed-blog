@@ -1,7 +1,7 @@
 .btn {
-  @apply text-purple;
-  @apply text-50;
-  @apply font-sans;
   @apply font-extralight;
+  @apply font-sans;
+  @apply text-50;
+  @apply text-purple;
   @apply uppercase;
 }
