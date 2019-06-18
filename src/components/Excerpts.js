@@ -4,6 +4,7 @@ import * as Markdown from 'react-markdown'
 const classNames = require('classnames')
 
 const Excerpts = ({
+  id,
   index,
   title,
   publishDate,
@@ -19,8 +20,7 @@ const Excerpts = ({
   snippet,
   limit
 }) => {
-  const date = { publishDate }.publishDate
-  const d = new Date(date)
+  const d = new Date({ publishDate }.publishDate)
   const months = [
     'January',
     'February',
@@ -63,11 +63,12 @@ const Excerpts = ({
 
   return (
     <Link
-      key="example"
-      to={`/blog/example`}
+      key={index}
+      to={`/blog/post-${index}`}
       state={{
         excerptData: {
           index,
+          id,
           title,
           publishDate,
           name,

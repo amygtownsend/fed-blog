@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import * as Markdown from 'react-markdown'
 
 const Paragraph = ({ children }) => (
@@ -10,39 +10,54 @@ const Heading = ({ children }) => (
 )
 
 const FullPost = ({
+  client,
   location: {
     state: {
-      excerptData: {
-        index,
-        title,
-        publishDate,
-        name,
-        content,
-        month,
-        day,
-        year
-      }
+      excerptData: { id, title, publishDate, name, month, day, year }
     }
   }
-}) => (
-  <div key={index} className="text-center">
-    <h1 className="text-100 font-extralight leading-snug uppercase mt-30 mb-48">
-      {title}
-    </h1>
-    <hr className="border-gray-100 border m-0 mx-30" />
-    <div className="leading-tight my-30">
-      <span className="font-medium text-18 text-purple block">{name}</span>
-      <time className="font-medium text-18" dateTime={publishDate}>
-        {month} {day}, {year}
-      </time>
+}) => {
+  const [content, setContent] = useState('')
+
+  useEffect(() => {
+    const fetchPosts = () =>
+      client.getEntries({
+        content_type: 'blogPost',
+        'sys.id': id,
+        select: 'fields.content'
+      })
+    fetchPosts()
+      .then(r => {
+        return r.items[0]
+      })
+      .then(r => {
+        return r.fields
+      })
+      .then(r => {
+        setContent(r.content)
+      })
+  }, [client, id])
+
+  return (
+    <div key={id} className="text-center">
+      <h1 className="text-100 font-extralight leading-snug uppercase mt-30 mb-48">
+        {title}
+      </h1>
+      <hr className="border-gray-100 border m-0 mx-30" />
+      <div className="leading-tight my-30">
+        <span className="font-medium text-18 text-purple block">{name}</span>
+        <time className="font-medium text-18" dateTime={publishDate}>
+          {month} {day}, {year}
+        </time>
+      </div>
+      <hr className="border-gray-100 border m-0 mx-30" />
+      <Markdown
+        source={content}
+        className="text-left mt-60 mx-30"
+        renderers={{ paragraph: Paragraph, heading: Heading }}
+      />
     </div>
-    <hr className="border-gray-100 border m-0 mx-30" />
-    <Markdown
-      source={content}
-      className="text-left mt-60 mx-30"
-      renderers={{ paragraph: Paragraph, heading: Heading }}
-    />
-  </div>
-)
+  )
+}
 
 export default FullPost

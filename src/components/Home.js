@@ -4,13 +4,13 @@ import Selector from './Selector'
 import PostList from './PostList'
 import Pagination from './Pagination'
 
-const Home = ({ data }) => (
+const Home = ({ client }) => (
   <div>
     <Header />
     <main>
       <Selector />
       <hr className="border-gray-100 border m-0 mx-30" />
-      <PostList data={data} />
+      <PostList client={client} />
       <hr className="border-gray-100 border m-0 mx-30" />
       <Pagination />
     </main>
