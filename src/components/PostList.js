@@ -9,7 +9,8 @@ const PostList = ({ client }) => {
       client.getEntries({
         content_type: 'blogPost',
         select:
-          'sys.id,fields.title,fields.publishDate,fields.author,fields.content,fields.image,fields.snippet'
+          'sys.id,fields.title,fields.publishDate,fields.author,fields.content,fields.image,fields.snippet',
+        order: '-fields.publishDate'
       })
     fetchPosts().then(response => {
       setPosts(response.items)
