@@ -10,12 +10,10 @@ const client = contentful.createClient({
 })
 
 const App = () => (
-  <div className="max-w-950 m-auto my-24">
-    <Router>
-      <Home path="/" client={client} />
-      <FullPost path="/blog/:postId" client={client} />
-    </Router>
-  </div>
+  <Router>
+    <Home path="/" client={client} />
+    <FullPost path="/blog/:postId" client={client} />
+  </Router>
 )
 
 export default App
