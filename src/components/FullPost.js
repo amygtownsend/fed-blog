@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import * as Markdown from 'react-markdown'
+import Header from './Header'
+import ThemeContext from './ThemeContext'
+import logoWhite from '../img/logos/logo-white.png'
 
 const Paragraph = ({ children }) => (
   <p className="leading-loose text-17 my-22">{children}</p>
@@ -39,24 +42,29 @@ const FullPost = ({
   }, [client, id])
 
   return (
-    <div key={id} className="text-center">
-      <h1 className="text-100 font-extralight leading-snug uppercase mt-30 mb-48">
-        {title}
-      </h1>
-      <hr className="border-gray-100 border m-0 mx-30" />
-      <div className="leading-tight my-30">
-        <span className="font-medium text-18 text-purple block">{name}</span>
-        <time className="font-medium text-18" dateTime={publishDate}>
-          {month} {day}, {year}
-        </time>
+    <>
+      <ThemeContext.Provider value={logoWhite}>
+        <Header />
+      </ThemeContext.Provider>
+      <div key={id} className="text-center">
+        <h1 className="text-100 font-extralight leading-snug uppercase mt-30 mb-48">
+          {title}
+        </h1>
+        <hr className="border-gray-100 border m-0 mx-30" />
+        <div className="leading-tight my-30">
+          <span className="font-medium text-18 text-purple block">{name}</span>
+          <time className="font-medium text-18" dateTime={publishDate}>
+            {month} {day}, {year}
+          </time>
+        </div>
+        <hr className="border-gray-100 border m-0 mx-30" />
+        <Markdown
+          source={content}
+          className="text-left mt-60 mx-30"
+          renderers={{ paragraph: Paragraph, heading: Heading }}
+        />
       </div>
-      <hr className="border-gray-100 border m-0 mx-30" />
-      <Markdown
-        source={content}
-        className="text-left mt-60 mx-30"
-        renderers={{ paragraph: Paragraph, heading: Heading }}
-      />
-    </div>
+    </>
   )
 }
 

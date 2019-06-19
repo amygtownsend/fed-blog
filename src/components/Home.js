@@ -5,7 +5,7 @@ import PostList from './PostList'
 import Pagination from './Pagination'
 
 const Home = ({ client }) => (
-  <div>
+  <>
     <Header />
     <main>
       <Selector />
@@ -14,7 +14,7 @@ const Home = ({ client }) => (
       <hr className="border-gray-100 border m-0 mx-30" />
       <Pagination />
     </main>
-  </div>
+  </>
 )
 
 export default Home
