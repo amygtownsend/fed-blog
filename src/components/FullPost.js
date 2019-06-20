@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as Markdown from 'react-markdown'
 import Header from './Header'
-import { HeaderContext, themes } from './HeaderContext'
+import logoWhite from '../img/logos/logo-white.png'
 
 const Paragraph = ({ children }) => (
   <p className="leading-loose text-17 my-30">{children}</p>
@@ -42,9 +42,7 @@ const FullPost = ({
 
   return (
     <>
-      <HeaderContext.Provider value={themes.white}>
-        <Header index={index} />
-      </HeaderContext.Provider>
+      <Header index={index} logo={logoWhite} colorBg={true} />
       <main className="max-w-85vw lg:max-w-950 m-auto">
         <div className="bg-white text-center py-30">
           <h1 className="text-48 lg:text-100 font-extralight leading-snug uppercase mb-48 px-22">
