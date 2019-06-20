@@ -45,9 +45,9 @@ const FullPost = ({
       <HeaderContext.Provider value={themes.white}>
         <Header index={index} />
       </HeaderContext.Provider>
-      <main className="max-w-950 m-auto">
+      <main className="max-w-85vw lg:max-w-950 m-auto">
         <div className="bg-white text-center py-30">
-          <h1 className="text-100 font-extralight leading-snug uppercase mb-48">
+          <h1 className="text-48 lg:text-100 font-extralight leading-snug uppercase mb-48 px-22">
             {title}
           </h1>
           <hr className="border-gray-100 border m-0" />

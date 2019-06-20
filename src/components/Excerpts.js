@@ -41,14 +41,14 @@ const Excerpts = ({
   const year = d.getFullYear()
 
   const cardClasses = classNames(
-    'group flex items-start p-30 my-30 hover:text-white focus:text-white rounded-8',
+    'group flex flex-col md:flex-row items-start p-30 my-30 hover:text-white focus:text-white rounded-8',
     {
       'hover:bg-green-200 focus:bg-green-200': index % 2 === 0,
       'hover:bg-blue-200 focus:bg-blue-200': index % 2 !== 0
     }
   )
 
-  const imgClasses = classNames('flex-shrink-0', {
+  const imgClasses = classNames('w-full md:w-200 md:h-200 flex-shrink-0', {
     'bg-green-200': index % 2 === 0,
     'bg-blue-200': index % 2 !== 0
   })
@@ -82,13 +82,13 @@ const Excerpts = ({
       <article className={cardClasses}>
         <div className={imgClasses}>
           <img
-            className="w-200"
+            className="object-cover w-full h-full"
             style={{ mixBlendMode: 'multiply' }}
             src={url}
             alt=""
           />
         </div>
-        <div className="ml-30">
+        <div className="mt-22 md:mt-0 md:ml-30">
           <h2 className={titleClasses}>{title}</h2>
           <div className="flex text-18 my-8">
             <span className="font-medium">{name}</span>

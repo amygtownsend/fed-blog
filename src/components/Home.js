@@ -5,7 +5,7 @@ import PostList from './PostList'
 import Pagination from './Pagination'
 
 const Home = ({ client }) => (
-  <div className="max-w-994 m-auto">
+  <div className="max-w-85vw lg:max-w-994 m-auto">
     <Header />
     <main>
       <Selector />
