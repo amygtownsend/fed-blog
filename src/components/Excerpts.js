@@ -20,7 +20,7 @@ const Excerpts = ({
   snippet,
   limit
 }) => {
-  const d = new Date({ publishDate }.publishDate)
+  const d = new Date(publishDate)
   const months = [
     'January',
     'February',
@@ -61,6 +61,14 @@ const Excerpts = ({
     }
   )
 
+  const snipper = limit
+    ? snippet
+        .split(' ')
+        .splice(0, limit)
+        .join(' ')
+        .concat('...')
+    : snippet
+
   return (
     <Link
       key={index}
@@ -82,7 +90,7 @@ const Excerpts = ({
       <article className={cardClasses}>
         <div className={imgClasses}>
           <img
-            className="object-cover w-full h-full"
+            className="object-cover opacity-50 w-full h-full"
             style={{ mixBlendMode: 'multiply' }}
             src={url}
             alt=""
@@ -100,15 +108,7 @@ const Excerpts = ({
             </time>
           </div>
           <Markdown
-            source={
-              limit
-                ? snippet
-                    .split(' ')
-                    .splice(0, limit)
-                    .join(' ')
-                    .concat('...')
-                : snippet
-            }
+            source={snipper}
             className="text-15 text-gray-200 leading-relaxed group-hover:text-white group-focus:text-white"
           />
         </div>
