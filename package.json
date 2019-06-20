@@ -53,5 +53,10 @@
     "tabWidth": 2,
     "semi": false,
     "singleQuote": true
+  },
+  "babel": {
+    "plugins": [
+      "inline-react-svg"
+    ]
   }
 }

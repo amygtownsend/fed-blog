@@ -1,5 +1,5 @@
 import React from 'react'
-import arrowDown from '../img/icons/arrow-do.png'
+import arrowDown from '../img/icons/arrow-down.svg'
 
 const Selector = () => (
   <div className="flex items-baseline font-medium justify-end mr-30 my-16">
