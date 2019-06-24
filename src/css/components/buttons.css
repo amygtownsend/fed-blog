@@ -5,3 +5,8 @@
   @apply text-purple;
   @apply uppercase;
 }
+
+.btn-disabled {
+  @apply cursor-not-allowed;
+  @apply opacity-25;
+}

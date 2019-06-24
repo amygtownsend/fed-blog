@@ -1,8 +1,9 @@
 import React from 'react'
 import { ReactComponent as ArrowLeft } from '../img/icons/arrow-left.svg'
 import { ReactComponent as ArrowRight } from '../img/icons/arrow-right.svg'
+const classNames = require('classnames')
 
-const Pagination = ({ currentSkip, onPageChange }) => {
+const Pagination = ({ posts, currentSkip, onPageChange }) => {
   const next = () => {
     onPageChange(currentSkip + 5)
   }
@@ -10,13 +11,32 @@ const Pagination = ({ currentSkip, onPageChange }) => {
     onPageChange(currentSkip - 5)
   }
 
+  const prevDisabled = currentSkip === 0
+  const nextDisabled = posts.length !== 5
+
+  const prevClasses = classNames('btn flex items-center', {
+    'btn-disabled': prevDisabled
+  })
+
+  const nextClasses = classNames('btn flex items-center', {
+    'btn-disabled': nextDisabled
+  })
+
   return (
     <div className="flex justify-between m-30">
-      <button className="btn flex items-center" onClick={prev()}>
+      <button
+        className={prevClasses}
+        disabled={prevDisabled}
+        onClick={!prevDisabled && prev}
+      >
         <ArrowLeft alt="previous blog posts" className="mr-8" />
         <div>Prev</div>
       </button>
-      <button className="btn flex items-center" onClick={next()}>
+      <button
+        className={nextClasses}
+        disabled={nextDisabled}
+        onClick={!nextDisabled && next}
+      >
         <div>Next</div>
         <ArrowRight alt="next blog posts" className="ml-8" />
       </button>

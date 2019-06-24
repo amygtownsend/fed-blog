@@ -36,7 +36,7 @@ const Home = ({ client }) => {
         <hr className="border-gray-100 border m-0 mx-22" />
         <PostList posts={posts} />
         <hr className="border-gray-100 border m-0 mx-22" />
-        <Pagination currentSkip={skip} onPageChange={onChange} />
+        <Pagination posts={posts} currentSkip={skip} onPageChange={onChange} />
       </main>
     </div>
   )
