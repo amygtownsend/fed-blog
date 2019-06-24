@@ -7,6 +7,7 @@ import logoColor from '../img/logos/logo-color.png'
 
 const Home = ({ client }) => {
   const [posts, setPosts] = useState([])
+  const [total, setTotal] = useState(0)
   const [skip, setSkip] = useState(0)
 
   const onChange = newSkip => {
@@ -24,6 +25,7 @@ const Home = ({ client }) => {
         skip: skip
       })
     fetchPosts().then(response => {
+      setTotal(response.total)
       setPosts(response.items)
     })
   }, [client, skip])
@@ -36,7 +38,7 @@ const Home = ({ client }) => {
         <hr className="border-gray-100 border m-0 mx-22" />
         <PostList posts={posts} />
         <hr className="border-gray-100 border m-0 mx-22" />
-        <Pagination posts={posts} currentSkip={skip} onPageChange={onChange} />
+        <Pagination total={total} currentSkip={skip} onPageChange={onChange} />
       </main>
     </div>
   )
