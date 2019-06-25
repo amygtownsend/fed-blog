@@ -8,14 +8,14 @@ import logoColor from '../img/logos/logo-color.png'
 const Home = ({ client }) => {
   const [posts, setPosts] = useState([])
   const [categoryId, setCategoryId] = useState('')
-  const [total, setTotal] = useState(0)
-  const [skip, setSkip] = useState(0)
-  const LIMIT = 5
-  const [count, setCount] = useState(LIMIT)
+  const [totalPosts, setTotalPosts] = useState(0)
+  const [postSkipCount, setPostSkipCount] = useState(0)
+  const MAX_POSTS_PER_VIEW = 5
+  const [postViewCount, setPostViewCount] = useState(MAX_POSTS_PER_VIEW)
 
   const useSelector = e => {
-    setSkip(0)
-    setCount(LIMIT)
+    setPostSkipCount(0)
+    setPostViewCount(MAX_POSTS_PER_VIEW)
     setCategoryId(e.target.value)
   }
 
@@ -35,14 +35,14 @@ const Home = ({ client }) => {
         ].join(','),
         order: '-fields.publishDate',
         'fields.category.sys.id': categoryId,
-        limit: LIMIT,
-        skip: skip
+        limit: MAX_POSTS_PER_VIEW,
+        skip: postSkipCount
       })
     fetchPosts().then(r => {
-      setTotal(r.total)
+      setTotalPosts(r.total)
       setPosts(r.items)
     })
-  }, [client, skip, categoryId])
+  }, [client, postSkipCount, categoryId])
 
   return (
     <div className="max-w-85vw lg:max-w-994 m-auto">
@@ -62,12 +62,12 @@ const Home = ({ client }) => {
         </div>
         <hr className="border-gray-100 border m-0 mx-22" />
         <Pagination
-          total={total}
-          skip={skip}
-          setSkip={setSkip}
-          count={count}
-          setCount={setCount}
-          limit={LIMIT}
+          totalPosts={totalPosts}
+          maxPostsPerView={MAX_POSTS_PER_VIEW}
+          postSkipCount={postSkipCount}
+          postViewCount={postViewCount}
+          setPostSkipCount={setPostSkipCount}
+          setPostViewCount={setPostViewCount}
         />
       </main>
     </div>

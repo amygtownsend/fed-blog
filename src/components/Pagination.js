@@ -2,21 +2,28 @@ import React from 'react'
 import { ReactComponent as ArrowLeft } from '../img/icons/arrow-left.svg'
 import { ReactComponent as ArrowRight } from '../img/icons/arrow-right.svg'
 
-const Pagination = ({ total, skip, setSkip, count, setCount, limit }) => {
+const Pagination = ({
+  totalPosts,
+  maxPostsPerView,
+  postSkipCount,
+  postViewCount,
+  setPostSkipCount,
+  setPostViewCount
+}) => {
   const next = () => {
-    setSkip(skip + limit)
-    setCount(count + limit)
+    setPostSkipCount(postSkipCount + maxPostsPerView)
+    setPostViewCount(postViewCount + maxPostsPerView)
   }
   const prev = () => {
-    setSkip(skip - limit)
-    setCount(count - limit)
+    setPostSkipCount(postSkipCount - maxPostsPerView)
+    setPostViewCount(postViewCount - maxPostsPerView)
   }
 
   return (
     <div className="flex justify-between m-30">
       <button
         className="btn flex items-center"
-        disabled={skip === 0}
+        disabled={postSkipCount === 0}
         onClick={prev}
       >
         <ArrowLeft aria-hidden="true" className="mr-8" />
@@ -24,7 +31,7 @@ const Pagination = ({ total, skip, setSkip, count, setCount, limit }) => {
       </button>
       <button
         className="btn flex items-center"
-        disabled={count >= total}
+        disabled={postViewCount >= totalPosts}
         onClick={next}
       >
         <span>Next</span>
