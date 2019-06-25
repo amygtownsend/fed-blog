@@ -56,6 +56,7 @@ const Home = ({ client }) => {
         <hr className="border-gray-100 border m-0 mx-22" />
         <div className="flex-col">
           {posts.map(({ fields, sys: { id } }, i) => (
+            // Each excerpt limited to 53 words, per design
             <Excerpts key={id} index={i} id={id} limit={53} {...fields} />
           ))}
         </div>
