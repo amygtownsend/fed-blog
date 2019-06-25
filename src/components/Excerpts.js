@@ -12,7 +12,7 @@ const Excerpts = ({
     fields: { name }
   },
   content,
-  image: {
+  imageLarge: {
     fields: {
       file: { url }
     }

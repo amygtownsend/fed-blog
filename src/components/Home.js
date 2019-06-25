@@ -23,8 +23,16 @@ const Home = ({ client }) => {
     const fetchPosts = () =>
       client.getEntries({
         content_type: 'blogPost',
-        select:
-          'sys.id,fields.title,fields.publishDate,fields.author,fields.content,fields.image,fields.snippet,fields.category',
+        select: [
+          'sys.id',
+          'fields.title',
+          'fields.publishDate',
+          'fields.author',
+          'fields.content',
+          'fields.imageLarge',
+          'fields.snippet',
+          'fields.category'
+        ].join(','),
         order: '-fields.publishDate',
         'fields.category.sys.id': categoryId,
         limit: LIMIT,
