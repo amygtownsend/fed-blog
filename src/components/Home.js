@@ -7,7 +7,7 @@ import logoColor from '../img/logos/logo-color.png'
 
 const Home = ({ client }) => {
   const [posts, setPosts] = useState([])
-  const [value, setValue] = useState('all')
+  const [value, setValue] = useState('')
   const [total, setTotal] = useState(0)
   const [skip, setSkip] = useState(0)
   const LIMIT = 5
@@ -27,17 +27,13 @@ const Home = ({ client }) => {
         select:
           'sys.id,fields.title,fields.publishDate,fields.author,fields.content,fields.image,fields.snippet,fields.category',
         order: '-fields.publishDate',
+        'fields.category.sys.id': value,
         limit: LIMIT,
         skip: skip
       })
     fetchPosts().then(r => {
       setTotal(r.total)
-      const filteredPosts = r.items.filter(({ fields: { category } }) => {
-        let arr = []
-        category.map(({ sys: { id } }) => arr.push(id))
-        return arr.includes(value) || value === 'all'
-      })
-      setPosts(filteredPosts)
+      setPosts(r.items)
     })
   }, [client, skip, value])
 

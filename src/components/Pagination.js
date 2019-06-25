@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { ReactComponent as ArrowLeft } from '../img/icons/arrow-left.svg'
 import { ReactComponent as ArrowRight } from '../img/icons/arrow-right.svg'
 
-const Pagination = ({ total, currentSkip, LIMIT, setSkip }) => {
-  const [count, setCount] = useState(LIMIT)
+const Pagination = ({ total, currentSkip, limit, setSkip }) => {
+  const [count, setCount] = useState(limit)
   const next = () => {
-    setSkip(currentSkip + LIMIT)
-    setCount(count + LIMIT)
+    setSkip(currentSkip + limit)
+    setCount(count + limit)
   }
   const prev = () => {
-    setSkip(currentSkip - LIMIT)
-    setCount(count - LIMIT)
+    setSkip(currentSkip - limit)
+    setCount(count - limit)
   }
 
   return (

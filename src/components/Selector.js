@@ -26,7 +26,7 @@ const Selector = ({ client, value, setValue }) => {
         className="font-medium ml-8 border-gray-100 border bg-no-repeat bg-right-8 bg-white w-200 pt-6 px-12 appearance-none"
         style={{ backgroundImage: `url(${arrowDown})` }}
       >
-        <option value="all">All</option>
+        <option value="">All</option>
         {categories.map(({ fields: { name }, sys: { id } }) => {
           return (
             <option key={id} value={id}>
