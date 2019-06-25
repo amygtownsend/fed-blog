@@ -9,6 +9,7 @@ const Home = ({ client }) => {
   const [posts, setPosts] = useState([])
   const [total, setTotal] = useState(0)
   const [skip, setSkip] = useState(0)
+  const LIMIT = 5
 
   const onChange = newSkip => {
     setSkip(newSkip)
@@ -21,7 +22,7 @@ const Home = ({ client }) => {
         select:
           'sys.id,fields.title,fields.publishDate,fields.author,fields.content,fields.image,fields.snippet',
         order: '-fields.publishDate',
-        limit: 5,
+        limit: LIMIT,
         skip: skip
       })
     fetchPosts().then(response => {
@@ -38,7 +39,12 @@ const Home = ({ client }) => {
         <hr className="border-gray-100 border m-0 mx-22" />
         <PostList posts={posts} />
         <hr className="border-gray-100 border m-0 mx-22" />
-        <Pagination total={total} currentSkip={skip} onPageChange={onChange} />
+        <Pagination
+          total={total}
+          currentSkip={skip}
+          limit={LIMIT}
+          onPageChange={onChange}
+        />
       </main>
     </div>
   )

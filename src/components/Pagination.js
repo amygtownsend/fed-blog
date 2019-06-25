@@ -1,47 +1,35 @@
 import React, { useState } from 'react'
 import { ReactComponent as ArrowLeft } from '../img/icons/arrow-left.svg'
 import { ReactComponent as ArrowRight } from '../img/icons/arrow-right.svg'
-const classNames = require('classnames')
 
-const Pagination = ({ total, currentSkip, onPageChange }) => {
-  const [count, setCount] = useState(5)
+const Pagination = ({ total, currentSkip, LIMIT, onPageChange }) => {
+  const [count, setCount] = useState(LIMIT)
   const next = () => {
-    onPageChange(currentSkip + 5)
-    setCount(count + 5)
+    onPageChange(currentSkip + LIMIT)
+    setCount(count + LIMIT)
   }
   const prev = () => {
-    onPageChange(currentSkip - 5)
-    setCount(count - 5)
+    onPageChange(currentSkip - LIMIT)
+    setCount(count - LIMIT)
   }
-
-  const prevDisabled = currentSkip === 0
-  const nextDisabled = count >= total
-
-  const prevClasses = classNames('btn flex items-center', {
-    'btn-disabled': prevDisabled
-  })
-
-  const nextClasses = classNames('btn flex items-center', {
-    'btn-disabled': nextDisabled
-  })
 
   return (
     <div className="flex justify-between m-30">
       <button
-        className={prevClasses}
-        disabled={prevDisabled}
-        onClick={!prevDisabled ? prev : () => {}}
+        className="btn flex items-center"
+        disabled={currentSkip === 0}
+        onClick={prev}
       >
-        <ArrowLeft alt="previous blog posts" className="mr-8" />
-        <div>Prev</div>
+        <ArrowLeft aria-hidden="true" className="mr-8" />
+        <span>Prev</span>
       </button>
       <button
-        className={nextClasses}
-        disabled={nextDisabled}
-        onClick={!nextDisabled ? next : () => {}}
+        className="btn flex items-center"
+        disabled={count >= total}
+        onClick={next}
       >
-        <div>Next</div>
-        <ArrowRight alt="next blog posts" className="ml-8" />
+        <span>Next</span>
+        <ArrowRight aria-hidden="true" className="ml-8" />
       </button>
     </div>
   )
