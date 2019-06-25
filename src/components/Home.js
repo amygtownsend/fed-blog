@@ -7,17 +7,16 @@ import logoColor from '../img/logos/logo-color.png'
 
 const Home = ({ client }) => {
   const [posts, setPosts] = useState([])
-  const [value, setValue] = useState('')
+  const [categoryId, setCategoryId] = useState('')
   const [total, setTotal] = useState(0)
   const [skip, setSkip] = useState(0)
   const LIMIT = 5
-
-  const usePagination = newSkip => {
-    setSkip(newSkip)
-  }
+  const [count, setCount] = useState(LIMIT)
 
   const useSelector = e => {
-    setValue(e.target.value)
+    setSkip(0)
+    setCount(LIMIT)
+    setCategoryId(e.target.value)
   }
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const Home = ({ client }) => {
         select:
           'sys.id,fields.title,fields.publishDate,fields.author,fields.content,fields.image,fields.snippet,fields.category',
         order: '-fields.publishDate',
-        'fields.category.sys.id': value,
+        'fields.category.sys.id': categoryId,
         limit: LIMIT,
         skip: skip
       })
@@ -35,13 +34,17 @@ const Home = ({ client }) => {
       setTotal(r.total)
       setPosts(r.items)
     })
-  }, [client, skip, value])
+  }, [client, skip, categoryId])
 
   return (
     <div className="max-w-85vw lg:max-w-994 m-auto">
       <Header logo={logoColor} colorBg={false} />
       <main>
-        <Selector client={client} value={value} setValue={useSelector} />
+        <Selector
+          client={client}
+          categoryId={categoryId}
+          setCategoryId={useSelector}
+        />
         <hr className="border-gray-100 border m-0 mx-22" />
         <div className="flex-col">
           {posts.map(({ fields, sys: { id } }, i) => (
@@ -51,9 +54,11 @@ const Home = ({ client }) => {
         <hr className="border-gray-100 border m-0 mx-22" />
         <Pagination
           total={total}
-          currentSkip={skip}
+          skip={skip}
+          setSkip={setSkip}
+          count={count}
+          setCount={setCount}
           limit={LIMIT}
-          setSkip={usePagination}
         />
       </main>
     </div>

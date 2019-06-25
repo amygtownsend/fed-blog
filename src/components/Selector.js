@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import arrowDown from '../img/icons/arrow-down.svg'
 
-const Selector = ({ client, value, setValue }) => {
+const Selector = ({ client, categoryId, setCategoryId }) => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -21,8 +21,8 @@ const Selector = ({ client, value, setValue }) => {
       <select
         id="category"
         name="category"
-        value={value}
-        onChange={setValue}
+        value={categoryId}
+        onChange={setCategoryId}
         className="font-medium ml-8 border-gray-100 border bg-no-repeat bg-right-8 bg-white w-200 pt-6 px-12 appearance-none"
         style={{ backgroundImage: `url(${arrowDown})` }}
       >

@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ReactComponent as ArrowLeft } from '../img/icons/arrow-left.svg'
 import { ReactComponent as ArrowRight } from '../img/icons/arrow-right.svg'
 
-const Pagination = ({ total, currentSkip, limit, setSkip }) => {
-  const [count, setCount] = useState(limit)
+const Pagination = ({ total, skip, setSkip, count, setCount, limit }) => {
   const next = () => {
-    setSkip(currentSkip + limit)
+    setSkip(skip + limit)
     setCount(count + limit)
   }
   const prev = () => {
-    setSkip(currentSkip - limit)
+    setSkip(skip - limit)
     setCount(count - limit)
   }
 
@@ -17,7 +16,7 @@ const Pagination = ({ total, currentSkip, limit, setSkip }) => {
     <div className="flex justify-between m-30">
       <button
         className="btn flex items-center"
-        disabled={currentSkip === 0}
+        disabled={skip === 0}
         onClick={prev}
       >
         <ArrowLeft aria-hidden="true" className="mr-8" />
