@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from '@reach/router'
+import PublishDate from './PublishDate'
 import * as Markdown from 'react-markdown'
 const classNames = require('classnames')
 
@@ -11,7 +12,6 @@ const Excerpts = ({
   author: {
     fields: { name }
   },
-  content,
   imageLarge: {
     fields: {
       file: { url }
@@ -20,26 +20,6 @@ const Excerpts = ({
   snippet,
   limit
 }) => {
-  const d = new Date(publishDate)
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ]
-
-  const month = months[d.getMonth()]
-  const day = d.getDate()
-  const year = d.getFullYear()
-
   const cardClasses = classNames(
     'group flex flex-col md:flex-row items-start p-30 my-30 hover:text-white focus:text-white rounded-8',
     {
@@ -70,23 +50,7 @@ const Excerpts = ({
     : snippet
 
   return (
-    <Link
-      key={index}
-      to={`/blog/post-${index}`}
-      state={{
-        excerptData: {
-          index,
-          id,
-          title,
-          publishDate,
-          name,
-          content,
-          month,
-          day,
-          year
-        }
-      }}
-    >
+    <Link key={id} to={`/blog/${id}`} state={{ index }}>
       <article className={cardClasses}>
         <div className={imgClasses}>
           <img
@@ -103,9 +67,7 @@ const Excerpts = ({
             <span className="px-8 text-gray-100 group-hover:text-white group-focus:text-white">
               |
             </span>
-            <time dateTime={publishDate} className="font-medium">
-              {month} {day}, {year}
-            </time>
+            <PublishDate date={publishDate} />
           </div>
           <Markdown
             source={snipper}
