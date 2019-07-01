@@ -1,5 +1,8 @@
 import React from 'react'
+const cx = require('classnames')
 
-const Divider = () => <hr className="border-gray-100 border m-0" />
+const Divider = ({ className }) => (
+  <hr className={cx('border-gray-100 border m-0', className)} />
+)
 
 export default Divider

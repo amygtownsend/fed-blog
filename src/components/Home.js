@@ -57,18 +57,14 @@ const Home = ({ client }) => {
           categoryId={categoryId}
           setCategoryId={useSelector}
         />
-        <div className="mx-30">
-          <Divider />
-        </div>
+        <Divider className="mx-30" />
         <div className="flex-col">
           {posts.map(({ fields, sys: { id } }, i) => (
             // Each excerpt limited to 53 words, per design
             <Excerpt key={id} index={i} id={id} limit={53} {...fields} />
           ))}
         </div>
-        <div className="mx-30">
-          <Divider />
-        </div>
+        <Divider className="mx-30" />
         <Pagination
           totalPosts={totalPosts}
           maxPostsPerView={MAX_POSTS_PER_VIEW}
