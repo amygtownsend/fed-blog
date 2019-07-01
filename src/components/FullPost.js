@@ -36,8 +36,6 @@ const FullPost = ({ client, postId, location }) => {
       })
   }, [client, postId])
 
-  console.log(fields)
-
   // Checks for Link state from Excerpt for bg color style
   const checkForExcerptIndex = () => {
     if (location.state) {
