@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import * as Markdown from 'react-markdown'
-import Header from './Header'
+import Logo from './Logo'
 import PublishDate from './PublishDate'
 import logoWhite from '../img/logos/logo-white.png'
 import Paragraph from './markdown/Paragraph'
 import Heading from './markdown/Heading'
+import Divider from './Divider'
+const classNames = require('classnames')
 
 const FullPost = ({ client, postId, location }) => {
   const [fields, setFields] = useState('')
@@ -34,7 +36,10 @@ const FullPost = ({ client, postId, location }) => {
       })
   }, [client, postId])
 
-  const checkExcerpt = () => {
+  console.log(fields)
+
+  // Checks for Link state from Excerpt for bg color style
+  const checkForExcerptIndex = () => {
     if (location.state) {
       return location.state.index
     } else {
@@ -42,23 +47,32 @@ const FullPost = ({ client, postId, location }) => {
     }
   }
 
+  // checkForExcerptIndex returns either Excerpt index for bg color style or 0 which defaults to green
+  const headerClasses = classNames('pt-10 h-auto md:h-678 mb-0 md:-mb-48', {
+    'bg-green-200': checkForExcerptIndex() % 2 === 0,
+    'bg-blue-200': checkForExcerptIndex() % 2 !== 0
+  })
+
   const content = () => {
     return (
       <>
-        <Header index={checkExcerpt()} logo={logoWhite} colorBg={true} />
+        <header className={headerClasses}>
+          {/* Add blog post image */}
+          <Logo logoVariant={logoWhite} />
+        </header>
         <main className="max-w-85vw lg:max-w-950 m-auto">
           <div className="bg-white text-center py-30">
             <h1 className="text-48 lg:text-100 font-extralight leading-snug uppercase mb-48 px-22">
               {fields.title}
             </h1>
-            <hr className="border-gray-100 border m-0" />
+            <Divider />
             <div className="leading-tight my-30">
               <span className="font-medium text-18 text-purple block">
-                {fields.name}
+                {fields.author.fields.name}
               </span>
               <PublishDate date={fields.publishDate} />
             </div>
-            <hr className="border-gray-100 border m-0" />
+            <Divider />
           </div>
           <Markdown
             source={fields.content}

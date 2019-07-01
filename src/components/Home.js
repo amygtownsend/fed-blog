@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Header from './Header'
+import Logo from './Logo'
 import Selector from './Selector'
-import Excerpts from '../components/Excerpts'
+import Excerpt from '../components/Excerpt'
 import Pagination from './Pagination'
+import Divider from './Divider'
 import logoColor from '../img/logos/logo-color.png'
 
 const Home = ({ client }) => {
@@ -46,21 +47,28 @@ const Home = ({ client }) => {
 
   return (
     <div className="max-w-85vw lg:max-w-994 m-auto">
-      <Header logo={logoColor} colorBg={false} />
+      <header className="pt-10 pb-24">
+        {/* Add blog post image */}
+        <Logo logoVariant={logoColor} />
+      </header>
       <main>
         <Selector
           client={client}
           categoryId={categoryId}
           setCategoryId={useSelector}
         />
-        <hr className="border-gray-100 border m-0 mx-22" />
+        <div className="mx-30">
+          <Divider />
+        </div>
         <div className="flex-col">
           {posts.map(({ fields, sys: { id } }, i) => (
             // Each excerpt limited to 53 words, per design
-            <Excerpts key={id} index={i} id={id} limit={53} {...fields} />
+            <Excerpt key={id} index={i} id={id} limit={53} {...fields} />
           ))}
         </div>
-        <hr className="border-gray-100 border m-0 mx-22" />
+        <div className="mx-30">
+          <Divider />
+        </div>
         <Pagination
           totalPosts={totalPosts}
           maxPostsPerView={MAX_POSTS_PER_VIEW}

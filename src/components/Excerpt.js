@@ -4,7 +4,7 @@ import PublishDate from './PublishDate'
 import * as Markdown from 'react-markdown'
 const classNames = require('classnames')
 
-const Excerpts = ({
+const Excerpt = ({
   id,
   index,
   title,
@@ -79,4 +79,4 @@ const Excerpts = ({
   )
 }
 
-export default Excerpts
+export default Excerpt
