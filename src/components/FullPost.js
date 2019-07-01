@@ -6,15 +6,15 @@ import logoWhite from '../img/logos/logo-white.png'
 import Paragraph from './markdown/Paragraph'
 import Heading from './markdown/Heading'
 import Divider from './Divider'
-const classNames = require('classnames')
+const cx = require('classnames')
 
 const FullPost = ({ client, postId, location }) => {
   const [fields, setFields] = useState('')
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    const fetchPosts = async () =>
-      await client.getEntries({
+    const fetchPosts = () =>
+      client.getEntries({
         content_type: 'blogPost',
         'sys.id': postId,
         select: [
@@ -46,7 +46,7 @@ const FullPost = ({ client, postId, location }) => {
   }
 
   // checkForExcerptIndex returns either Excerpt index for bg color style or 0 which defaults to green
-  const headerClasses = classNames('pt-10 h-auto md:h-678 mb-0 md:-mb-48', {
+  const headerClasses = cx('pt-10 h-auto md:h-678 mb-0 md:-mb-48', {
     'bg-green-200': checkForExcerptIndex() % 2 === 0,
     'bg-blue-200': checkForExcerptIndex() % 2 !== 0
   })
