@@ -1,11 +1,8 @@
 import React from 'react'
+const cx = require('classnames')
 
-const Button = ({ disabled, onClick, children }) => (
-  <button
-    className="btn flex items-center"
-    disabled={disabled}
-    onClick={onClick}
-  >
+const Button = ({ children, className, ...props }) => (
+  <button className={cx('btn', className)} {...props}>
     {children}
   </button>
 )

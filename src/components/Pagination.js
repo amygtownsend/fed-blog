@@ -23,12 +23,16 @@ const Pagination = ({
   return (
     <div className="flex justify-between m-30">
       <Button disabled={postSkipCount === 0} onClick={prev}>
-        <ArrowLeft aria-hidden="true" className="mr-8" />
-        <span>Prev</span>
+        <span className="flex items-center">
+          <ArrowLeft aria-hidden="true" className="mr-8" />
+          <span>Prev</span>
+        </span>
       </Button>
       <Button disabled={postViewCount >= totalPosts} onClick={next}>
-        <span>Next</span>
-        <ArrowRight aria-hidden="true" className="ml-8" />
+        <span className="flex items-center">
+          <span>Next</span>
+          <ArrowRight aria-hidden="true" className="ml-8" />
+        </span>
       </Button>
     </div>
   )
