@@ -6,7 +6,7 @@ import logoWhite from '../img/logos/logo-white.png'
 import Paragraph from './markdown/Paragraph'
 import Heading from './markdown/Heading'
 import Divider from './Divider'
-const cx = require('classnames')
+import cx from 'classnames'
 
 const FullPost = ({ client, postId, location }) => {
   const [fields, setFields] = useState('')
